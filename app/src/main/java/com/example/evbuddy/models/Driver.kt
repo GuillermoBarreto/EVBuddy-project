@@ -1,4 +1,7 @@
 package com.example.evbuddy.models
 
-class Driver {
-}
+data class Driver(
+    val name: String,
+    val vehicleModel: String,
+    val licensePlate: String
+)

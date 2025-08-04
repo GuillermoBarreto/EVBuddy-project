@@ -3,45 +3,28 @@ package com.example.evbuddy
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.evbuddy.ui.theme.EVBuddyTheme
+import androidx.navigation.compose.rememberNavController
+import com.example.evbuddy.models.Driver
+import com.example.evbuddy.ui.theme.AppNavigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            EVBuddyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            EVBuddyApp()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun EVBuddyApp() {
+    val navController = rememberNavController()
+    val drivers = listOf(
+        Driver("Alice", "Tesla Model S", "ABC123"),
+        Driver("Bob", "Nissan Leaf", "XYZ789"),
+        Driver("Charlie", "Chevy Bolt", "EV5555")
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EVBuddyTheme {
-        Greeting("Android")
-    }
+    AppNavigation(navController, drivers)
 }
