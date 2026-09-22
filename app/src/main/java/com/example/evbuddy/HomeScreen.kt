@@ -9,7 +9,7 @@ fun HomeScreen() {
         topBar = {
             TopAppBar(title = { Text("EVBuddy Home") })
         }
-    ) {
+    ) { _ ->
         // Add content later
     }
 }
