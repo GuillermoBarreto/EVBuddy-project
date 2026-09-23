@@ -21,7 +21,7 @@ fun DriverListScreen(drivers: List<Driver>) {
                 .padding(padding)
                 .padding(16.dp)
         ) {
-            items(drivers) { driver ->
+            items(drivers, key = { it.licensePlate }) { driver ->
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
