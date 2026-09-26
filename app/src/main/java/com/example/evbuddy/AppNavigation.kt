@@ -8,9 +8,11 @@ import com.example.evbuddy.models.Driver
 
 @Composable
 fun AppNavigation(navController: NavHostController, drivers: List<Driver>) {
-    NavHost(navController = navController, startDestination = "driver_list") {
-        composable("driver_list") {
+    NavHost(navController = navController, startDestination = DRIVER_LIST_ROUTE) {
+        composable(DRIVER_LIST_ROUTE) {
             DriverListScreen(drivers)
         }
     }
 }
+
+private const val DRIVER_LIST_ROUTE = "driver_list"
