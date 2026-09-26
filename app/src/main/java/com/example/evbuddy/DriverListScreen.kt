@@ -6,6 +6,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.example.evbuddy.models.Driver
 
@@ -34,6 +36,7 @@ fun DriverListScreen(drivers: List<Driver>) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp)
+                        .semantics { contentDescription = "Driver ${driver.name}, plate ${driver.licensePlate}" }
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(text = "Name: ${driver.name}", style = MaterialTheme.typography.bodyLarge)
