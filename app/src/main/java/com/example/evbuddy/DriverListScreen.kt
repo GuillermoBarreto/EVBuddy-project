@@ -21,6 +21,14 @@ fun DriverListScreen(drivers: List<Driver>) {
                 .padding(padding)
                 .padding(16.dp)
         ) {
+            if (drivers.isEmpty()) {
+                item {
+                    Text(
+                        text = "No drivers available",
+                        modifier = Modifier.padding(16.dp)
+                    )
+                }
+            }
             items(drivers, key = { it.licensePlate }) { driver ->
                 Card(
                     modifier = Modifier
