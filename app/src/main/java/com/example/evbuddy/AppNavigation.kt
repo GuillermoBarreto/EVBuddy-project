@@ -12,7 +12,11 @@ fun AppNavigation(navController: NavHostController, drivers: List<Driver>) {
         composable(DRIVER_LIST_ROUTE) {
             DriverListScreen(drivers)
         }
+        composable(HOME_ROUTE) {
+            HomeScreen()
+        }
     }
 }
 
 private const val DRIVER_LIST_ROUTE = "driver_list"
+private const val HOME_ROUTE = "home"
